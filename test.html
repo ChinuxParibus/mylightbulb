@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Test $.loop</title>
+	<style>
+		#animated {position: absolute; left: 5px; top: 200px;}
+	</style>
+</head>
+<body>
+	<div id="animated">Esta es una animación</div>
+	<script src="minified.js"></script>
+	<script>
+	var $ = require('minified').$;
+
+	$(function () {
+		var div = $('#animated');
+		div.animate({$left: '400px'}, 3000).then(function () {
+			div.animate({$left: '5px'}, 3000);
+		});
+	})
+	</script>
+</body>
+</html>
